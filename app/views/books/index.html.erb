@@ -1,7 +1,11 @@
-
+<% if flash[:notice] %>
+ <div class="success">
+     <p><%= flash[:notice] %></p>
+ </div>
+<% end %>
+<div class="main">
 <h1>Books</h1>
-
-<table>
+<table cellspacing="5">
 　<tr>
    <th>title</th>
    <th>body</th>
@@ -18,7 +22,7 @@
 </table>
 
 
-<h1>New Book</h1>
+<h3>New Book</h3>
 <%= form_with model:@book, local:true do |f| %>
 <% if @book.errors.any? %>
  <ul>
@@ -36,3 +40,4 @@
  <div class=button><%= f.submit 'Create Book' %></div>
 
 <% end %>
+</div>
